@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Core.Entities;
 
 namespace API.DTOs;
 
@@ -19,5 +20,11 @@ public class CreateProductDTO
     [Range(1, int.MaxValue, ErrorMessage = "The product's stock level has to be greater or equal to 1!")]
     public decimal StockLevel { get; set; }
 
-    // TODO: Brand and Type and picture urls
+    [Required]
+    [EnumDataType(typeof(Brand))]
+    public Brand Brand { get; set; }
+
+    [Required]
+    [EnumDataType(typeof(Core.Entities.Type))]
+    public Core.Entities.Type Type { get; set; }
 }
