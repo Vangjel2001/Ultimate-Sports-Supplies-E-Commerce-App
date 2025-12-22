@@ -3,15 +3,9 @@ using Core.Entities;
 
 namespace Core.Interfaces;
 
-public interface IProductRepository
+public interface IProductRepository : IRepository<Product>
 {
-    Task<IList<Product>> GetProductsAsync(string? brand, string? type, string? sort);
-    Task<Product?> GetProductByIdAsync(int id);
-    Task<IList<string>> GetBrandsAsync();
-    Task<IList<string>> GetTypesAsync();
-    void AddProduct(Product product);
-    void UpdateProduct(Product product);
-    void DeleteProduct(Product product);
-    bool ProductExists(int id);
-    Task<bool> SaveChangesAsync();
+    Task<IList<Product>> GetProductsAsync(string[]? brands, string[]? types, string? sort, string? search);
+    Task<IList<Brand>> GetBrandsAsync();
+    Task<IList<Entities.Type>> GetTypesAsync();
 }
