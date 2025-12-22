@@ -9,7 +9,7 @@ public class Order : BaseEntity
     public ShippingAddress ShippingAddress { get; set; } = null!;
     public DeliveryMethod DeliveryMethod { get; set; } = null!;
     public List<OrderItem> OrderItems { get; set; } = [];
-    public int PaymentIntentId { get; set; }
+    public required string PaymentIntentId { get; set; }
     public decimal Subtotal { get; set; }
     public decimal Total { get; set; }
     public required string BuyerEmail { get; set; }
