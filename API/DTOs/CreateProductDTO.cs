@@ -27,6 +27,4 @@ public class CreateProductDTO
     [Required]
     [EnumDataType(typeof(Core.Entities.Type))]
     public Core.Entities.Type Type { get; set; }
-
-    // TODO: Picture URLs
 }
