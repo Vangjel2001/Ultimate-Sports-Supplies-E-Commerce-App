@@ -1,3 +1,4 @@
+using API.Middleware;
 using System.Text.Json.Serialization;
 using Core.Entities;
 
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 //app.UseAuthorization();
 
