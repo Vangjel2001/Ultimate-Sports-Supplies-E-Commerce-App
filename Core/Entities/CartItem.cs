@@ -9,6 +9,6 @@ public class CartItem
     public decimal Price { get; set; }
     public int Quantity { get; set; }
     public required string PictureUrl { get; set; }
-
-    // TODO : Brand and Type
+    public Brand Brand { get; set; }
+    public Type Type { get; set; }
 }

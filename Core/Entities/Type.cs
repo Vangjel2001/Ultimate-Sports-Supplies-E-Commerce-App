@@ -2,7 +2,7 @@ namespace Core.Entities;
 
 public enum Type
 {
-    Boxing,
-    Kickboxing,
-    MMA
+    Boxing = 1,
+    Kickboxing = 2,
+    MMA = 3
 }

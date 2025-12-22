@@ -2,7 +2,7 @@ namespace Core.Entities;
 
 public enum Brand
 {
-    Venum,
-    Adidas,
-    Reebok
+    Venum = 1,
+    Adidas = 2,
+    Reebok = 3
 }
