@@ -1,14 +1,11 @@
-using System;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data;
+namespace Infrastructure.Repositories;
 
-public class Repository<T>(AppContext context) : IRepository<T> where T : BaseEntity
+public class Repository<T>(Data.AppContext context) : IRepository<T> where T : BaseEntity
 {
-    // TODO: Save Changes and Dispose methods
-
     public void Add(T entity)
     {
         context.Set<T>().Add(entity);

@@ -1,6 +1,8 @@
 using API.Middleware;
 using System.Text.Json.Serialization;
 using Core.Entities;
+using Core.Interfaces;
+using Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,14 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddCors();
+
 builder.Services.AddAuthorization();
+
+//builder.Services.AddIdentityApiEndpoints<AppUser>()
+    //.AddEntityFrameworkStores<AppContext>();
 
 var app = builder.Build();
 
@@ -28,9 +37,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<ExceptionMiddleware>();
 
-//app.UseAuthorization();
+// app.UseAuthentication();
+// app.UseAuthorization();
 
 app.MapControllers();
-app.MapIdentityApi<AppUser>();
+app.MapGroup("api").MapIdentityApi<AppUser>();
 
 app.Run();
