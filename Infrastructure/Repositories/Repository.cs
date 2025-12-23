@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-public class Repository<T>(Data.AppContext context) : IRepository<T> where T : BaseEntity
+public class Repository<T>(Data.ApplicationContext context) : IRepository<T> where T : BaseEntity
 {
     public void Add(T entity)
     {

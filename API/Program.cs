@@ -2,7 +2,9 @@ using API.Middleware;
 using System.Text.Json.Serialization;
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+
+builder.Services.AddDbContext<ApplicationContext>(options =>
+{
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); 
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -22,8 +29,8 @@ builder.Services.AddCors();
 
 builder.Services.AddAuthorization();
 
-//builder.Services.AddIdentityApiEndpoints<AppUser>()
-    //.AddEntityFrameworkStores<AppContext>();
+builder.Services.AddIdentityApiEndpoints<AppUser>()
+    .AddEntityFrameworkStores<ApplicationContext>();
 
 var app = builder.Build();
 
@@ -37,8 +44,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<ExceptionMiddleware>();
 
-// app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 app.MapGroup("api").MapIdentityApi<AppUser>();

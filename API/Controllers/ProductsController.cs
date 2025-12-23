@@ -8,7 +8,7 @@ namespace API.Controllers;
 public class ProductsController(IProductRepository productsRepository) : BaseApiController
 {
     [HttpGet]
-    public async Task<ActionResult<IList<Product>>> GetProducts(string[]? brands, string[]? types, string? sort, string? search)
+    public async Task<ActionResult<IList<Product>>> GetProducts([FromQuery] string[]? brands, string[]? types, string? sort, string? search)
     {
         return Ok(await productsRepository.GetProductsAsync(brands, types, sort, search));
     }
@@ -78,13 +78,13 @@ public class ProductsController(IProductRepository productsRepository) : BaseApi
     }
 
     [HttpGet("brands")]
-    public async Task<ActionResult<IList<Brand>>> GetBrands()
+    public async Task<ActionResult<IList<string>>> GetBrands()
     {
         return Ok(await productsRepository.GetBrandsAsync());
     }
 
     [HttpGet("types")]
-    public async Task<ActionResult<IList<Core.Entities.Type>>> GetTypes()
+    public async Task<ActionResult<IList<string>>> GetTypes()
     {
         return Ok(await productsRepository.GetTypesAsync());
     }

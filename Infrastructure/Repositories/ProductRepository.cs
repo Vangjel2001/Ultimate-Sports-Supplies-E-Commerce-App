@@ -5,11 +5,11 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Repositories;
 
-public class ProductRepository(Data.AppContext context) : Repository<Product>(context), IProductRepository
+public class ProductRepository(Data.ApplicationContext context) : Repository<Product>(context), IProductRepository
 {
-    public async Task<IList<Brand>> GetBrandsAsync()
+    public async Task<IList<string>> GetBrandsAsync()
     {
-        var brands = await context.Products.Select(x => x.Brand).Distinct().ToListAsync();
+        var brands = await context.Products.Select(x => x.Brand.ToString()).Distinct().ToListAsync();
 
         return brands; 
     }
@@ -53,9 +53,9 @@ public class ProductRepository(Data.AppContext context) : Repository<Product>(co
         return await query.ToListAsync();
     }
 
-    public async Task<IList<Core.Entities.Type>> GetTypesAsync()
+    public async Task<IList<string>> GetTypesAsync()
     {
-        var types = await context.Products.Select(x => x.Type).Distinct().ToListAsync();
+        var types = await context.Products.Select(x => x.Type.ToString()).Distinct().ToListAsync();
 
         return types; 
     }

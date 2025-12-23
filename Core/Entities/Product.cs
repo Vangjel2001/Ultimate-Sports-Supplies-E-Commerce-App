@@ -11,4 +11,5 @@ public class Product : BaseEntity
     public DateTime ArrivalDate { get; set; } = DateTime.UtcNow;
     public Brand Brand { get; set; }
     public Type Type { get; set; }
+    public required IList<ProductPicture> ProductPictures { get; set; }
 }
