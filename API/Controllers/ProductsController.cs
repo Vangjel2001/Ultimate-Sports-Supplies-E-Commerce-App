@@ -1,3 +1,4 @@
+using API.RequestHelpers;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -8,9 +9,24 @@ namespace API.Controllers;
 public class ProductsController(IProductRepository productsRepository) : BaseApiController
 {
     [HttpGet]
-    public async Task<ActionResult<IList<Product>>> GetProducts([FromQuery] string[]? brands, string[]? types, string? sort, string? search)
+    public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] string[]? brands, string[]? types, 
+    string? sort, string? search, int pageNumber, int entitiesPerPage)
     {
-        return Ok(await productsRepository.GetProductsAsync(brands, types, sort, search));
+        if (entitiesPerPage > 50)
+        {
+            entitiesPerPage = 50;
+        }
+        else if (entitiesPerPage < 6)
+        {
+            entitiesPerPage = 6;
+        }
+
+        var products = await productsRepository.GetProductsAsync(brands, types, sort, search, pageNumber, 
+        entitiesPerPage);
+
+        var productPagination = new Pagination<Product>(pageNumber, entitiesPerPage, products.Count, products);
+
+        return Ok(productPagination);
     }
 
     [HttpGet("{id:int}")]

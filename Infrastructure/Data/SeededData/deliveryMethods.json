@@ -1,0 +1,20 @@
+[
+    {
+        "ShortName": "Standard",
+        "DeliveryTime": "4-8 weeks",
+        "Description": "Standard Delivery",
+        "Fee": 5
+    },
+    {
+        "ShortName": "Fast",
+        "DeliveryTime": "2-4 weeks",
+        "Description": "Fast Delivery",
+        "Fee": 10
+    },
+    {
+        "ShortName": "Free",
+        "DeliveryTime": "8-12 weeks",
+        "Description": "Free Delivery",
+        "Fee": 0
+    }
+]

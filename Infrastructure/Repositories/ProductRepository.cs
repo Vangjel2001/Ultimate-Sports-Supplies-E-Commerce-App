@@ -14,7 +14,7 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
         return brands; 
     }
 
-    public async Task<IList<Product>> GetProductsAsync(string[]? brands, string[]? types, string? sort, string? search)
+    public async Task<IList<Product>> GetProductsAsync(string[]? brands, string[]? types, string? sort, string? search, int pageNumber = 1, int entitiesPerPage = 6)
     {
         var query = context.Products.AsQueryable();
 
@@ -22,7 +22,7 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
         {
             foreach (var brand in brands)
             {
-                query.Where(x => x.Brand.ToString() == brand);
+                query = query.Where(x => x.Brand.ToString() == brand);
             }
         }
 
@@ -30,8 +30,15 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
         {
             foreach (var type in types)
             {
-                query.Where(x => x.Type.ToString() == type);
+                query = query.Where(x => x.Type.ToString() == type);
             }
+        }
+
+        if (search.IsNullOrEmpty() == false)
+        {
+            query = query.Where(x => x.Name.Contains(search) || x.Description.Contains(search) || 
+                x.Brand.ToString().Contains(search) || x.Type.ToString().Contains(search) || x.Price.ToString().Contains(search) 
+                || x.StockLevel.ToString().Contains(search));
         }
 
         query = sort switch
@@ -43,14 +50,10 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
             _ => query.OrderBy(x => x.Name)
         };
 
-        if (search.IsNullOrEmpty() == false)
-        {
-            query = query.Where(x => x.Name.Contains(search) || x.Description.Contains(search) || 
-                x.Brand.ToString().Contains(search) || x.Type.ToString().Contains(search) || x.Price.ToString().Contains(search) 
-                || x.StockLevel.ToString().Contains(search));
-        }
+        var products = await query.Skip((pageNumber - 1) * entitiesPerPage)
+                       .Take(entitiesPerPage).ToListAsync();
 
-        return await query.ToListAsync();
+        return products;
     }
 
     public async Task<IList<string>> GetTypesAsync()

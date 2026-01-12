@@ -4,5 +4,6 @@ public enum Brand
 {
     Venum = 1,
     Adidas = 2,
-    Reebok = 3
+    Reebok = 3,
+    DiamondMMA = 4
 }

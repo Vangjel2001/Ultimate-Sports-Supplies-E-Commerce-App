@@ -1,0 +1,301 @@
+[
+    {
+        "Name": "MMA Rash Guard",
+        "Description": "Protects the skin against damage that can be caused during training or competition",
+        "Price": 49.99,
+        "StockLevel": 10,
+        "Brand": 1,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://img.freepik.com/free-photo/man-black-long-sleeved-swimming-top-mockup_53876-97692.jpg?semt=ais_hybrid&w=740&q=80"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/premium-psd/rash-guard-swimsuit-mockup-psd-black-men39s-summer-apparel_53876-677194.jpg?semt=ais_hybrid&w=740&q=80"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/premium-psd/men39s-long-sleeved-wetsuit-top-mockup-black-swimwear_53876-1079053.jpg?semt=ais_hybrid&w=740&q=80"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/free-photo/young-powerful-sportsman-white-clothing-black-wall_176420-542.jpg?semt=ais_hybrid&w=740&q=80"
+            }
+        ]
+    },
+    {
+        "Name": "Boxing Gloves",
+        "Description": "High Quality Boxing Gloves",
+        "Price": 29.99,
+        "StockLevel": 20,
+        "Brand": 3,
+        "Type": 1,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/613692200/photo/hanging-boxing-gloves.jpg?s=612x612&w=0&k=20&c=ZAo8VzaSoPq86ZyhFPjjaxyQh5S098dziGRceFNEVX4="
+            },
+            {
+                "PictureUrl": "https://cdn.pixabay.com/photo/2016/12/20/17/32/boxing-1921073_1280.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/hanging-red-boxing-gloves-against-600nw-2619992285.jpg"
+            },
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1136522918/photo/boxing-gloves-hanging.jpg?s=612x612&w=0&k=20&c=6fucIJB1QnWKav9lGeiH2LUZPQvzkERS_cjcJ0_30cs="
+            }
+        ]
+    },
+    {
+        "Name": "MMA Gloves",
+        "Description": "High Quality MMA Gloves",
+        "Price": 29.99,
+        "StockLevel": 18,
+        "Brand": 3,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/concept-kickboxing-sport-banner-dark-260nw-2273399397.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/pair-red-boxing-gloves-openfinger-260nw-2477358787.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/pair-red-boxing-gloves-openfinger-260nw-2477358797.jpg"
+            },
+            {
+                "PictureUrl": "https://png.pngtree.com/png-vector/20251121/ourmid/pngtree-realistic-3d-render-of-combat-sport-gloves-png-image_18027644.webp"
+            }
+        ]
+    },
+    {
+        "Name": "Kickboxing Shin Guards",
+        "Description": "High Quality Kickboxing Shin Guards",
+        "Price": 39.99,
+        "StockLevel": 15,
+        "Brand": 2,
+        "Type": 2,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/leg-knee-protection-karate-kickboxing-260nw-1207359721.jpg"
+            },
+            {
+                "PictureUrl": "https://image.shutterstock.com/image-photo/white-plastic-shin-legs-potection-260nw-2271504299.jpg"
+            },
+            {
+                "PictureUrl": "https://thumbs.dreamstime.com/b/kickboxing-leg-pads-guard-isolated-white-background-sparring-shin-guards-268952238.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/beautiful-determines-athletic-woman-boxer-260nw-2469004991.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Mouthguard",
+        "Description": "High Quality Mouthguard for all Types of Combat Sports",
+        "Price": 19.99,
+        "StockLevel": 30,
+        "Brand": 2,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/dental-mouth-guard-on-light-260nw-2250849207.jpg"
+            },
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1190780662/photo/many-colored-boxing-mouth-guards-lie-on-a-blue-background-concept.jpg?s=612x612&w=0&k=20&c=DuVpiLeklz5tqIa5ZqBb8Gmtsc-5YG6XQD7uCE9ATqI="
+            },
+            {
+                "PictureUrl": "https://cdn.create.vista.com/api/media/small/248046972/stock-photo-lots-of-boxing-protective-mouthguards-on-orange-background-concept"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/woman-holding-container-mouth-guard-260nw-2242779583.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Kickboxing Groin Cup",
+        "Description": "High Quality Kickboxing Groin Cup",
+        "Price": 29.99,
+        "StockLevel": 25,
+        "Brand": 2,
+        "Type": 2,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-vector/modern-hand-drawn-style-icon-260nw-2673298271.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-vector/fencing-groin-outline-icon-vector-260nw-2643371443.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-vector/taekwondo-male-groin-protector-outline-260nw-2620057451.jpg"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/premium-vector/vector-sketch-groin-guard-martial-arts_574806-1801.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Boxing Headgear",
+        "Description": "High Quality Boxing Headgear",
+        "Price": 29.99,
+        "StockLevel": 35,
+        "Brand": 1,
+        "Type": 1,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/840989884/photo/boxing-helmet.jpg?s=612x612&w=0&k=20&c=IpGG04HNXmPmoBK9newD2JRNbwlHgHmNk_24o0tDflA="
+            },
+            {
+                "PictureUrl": "https://thumbs.dreamstime.com/b/boxing-gloves-headgear-boxing-ring-pair-81432887.jpg"
+            },
+            {
+                "PictureUrl": "https://png.pngtree.com/thumb_back/fh260/background/20220210/pngtree-boxing-gloves-and-headgear-photo-image_29283388.jpg"
+            },
+            {
+                "PictureUrl": "https://images.pexels.com/photos/27302389/pexels-photo-27302389/free-photo-of-a-black-and-white-photo-of-a-man-in-boxing-gear.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            }
+        ]
+    },
+    {
+        "Name": "MMA Shorts",
+        "Description": "High Quality MMA Shorts",
+        "Price": 29.99,
+        "StockLevel": 40,
+        "Brand": 1,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-vector/mma-short-mockup-template-vector-260nw-2683889971.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-vector/printed-mma-sports-short-pants-260nw-2563399971.jpg"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/premium-vector/black-shorts_1149312-17.jpg"
+            },
+            {
+                "PictureUrl": "https://img.freepik.com/premium-vector/short-pants-technical-fashion-flat-sketch-vector-illustration-template_612205-506.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Heavybag",
+        "Description": "High Quality Heavybag",
+        "Price": 69.99,
+        "StockLevel": 24,
+        "Brand": 3,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1178734651/photo/studio-shot-of-a-red-punching-bag-hanging.jpg?s=612x612&w=0&k=20&c=l-TrfSvY1PbImmb7JC8l1RNMfen-BD_3wfTWF9ELrnI="
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/shutterstock/photos/138395153/display_1500/stock-photo-punching-bag-138395153.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-illustration/big-leather-black-punching-bag-260nw-335963135.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/young-strong-african-american-boxer-600nw-2514999173.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Punching Pads",
+        "Description": "High Quality Punching Pads",
+        "Price": 29.99,
+        "StockLevel": 14,
+        "Brand": 2,
+        "Type": 1,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/young-female-boxer-hitting-punching-260nw-2495859577.jpg"
+            },
+            {
+                "PictureUrl": "https://thumbs.dreamstime.com/b/bright-red-boxing-gloves-resting-black-white-punching-pad-bright-red-boxing-gloves-resting-black-white-punching-382857961.jpg"
+            },
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1300990296/photo/kickboxing-man-training-with-his-highly-concentrated-trainer-with-red-boxing-gloves-kicking.jpg?s=612x612&w=0&k=20&c=8x-8JLQsNQYTD8aN-GgazoYool0oqbgyoTtXEzFMk3Y="
+            },
+            {
+                "PictureUrl": "https://images.pexels.com/photos/33796264/pexels-photo-33796264.jpeg?cs=srgb&dl=pexels-olaseni-omoare-2148436008-33796264.jpg&fm=jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Kicking Pads",
+        "Description": "High Quality Kicking Pads",
+        "Price": 39.99,
+        "StockLevel": 12,
+        "Brand": 1,
+        "Type": 2,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/boxer-woman-trainer-boxing-kick-260nw-2453208921.jpg"
+            },
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/2226849552/photo/female-muay-thai-fighter-kicking-a-pad-held-by-her-trainer-in-the-gym.jpg?s=612x612&w=0&k=20&c=pKYbVXauU5b5AFV3CaRm_nmuAC7bzw4uVy21touDCh0="
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/african-american-coach-holding-kick-260nw-2672899481.jpg"
+            },
+            {
+                "PictureUrl": "https://images.pexels.com/photos/19406291/pexels-photo-19406291/free-photo-of-man-in-the-gym-with-boxing-training-equipment.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            }
+        ]
+    },
+    {
+        "Name": "MMA Cage",
+        "Description": "High Quality MMA Cage",
+        "Price": 149.99,
+        "StockLevel": 4,
+        "Brand": 3,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1198589383/photo/mma-arena.jpg?s=612x612&w=0&k=20&c=zQLpWxWS7aLS3htAjAMxFLGDzImQbMYsXXkMWekzqEk="
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/mma-cage-night-260nw-2695440403.jpg"
+            },
+            {
+                "PictureUrl": "https://thumbs.dreamstime.com/b/empty-mma-octagon-cage-illuminated-powerful-spotlights-creating-dramatic-atmosphere-combat-sports-competition-inside-421127299.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/mma-cage-arena-lit-by-260nw-2564400735.jpg"
+            }
+        ]
+    },
+    {
+        "Name": "Vaseline",
+        "Description": "High Quality Vaseline",
+        "Price": 19.99,
+        "StockLevel": 16,
+        "Brand": 2,
+        "Type": 3,
+        "ProductPictures":
+        [
+            {
+                "PictureUrl": "https://thumbs.dreamstime.com/b/march-th-cork-ireland-vaseline-cream-container-against-white-background-vaseline-cream-container-against-white-background-111788531.jpg"
+            },
+            {
+                "PictureUrl": "https://media.istockphoto.com/id/1205249025/photo/use-vaseline.jpg?s=170667a&w=is&k=20&c=U6avg82BRL5ZK5Updt3zXjlNj9sgwCpBBpd9rT9xFiI="
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/skin-care-image-take-hand-260nw-2419037301.jpg"
+            },
+            {
+                "PictureUrl": "https://www.shutterstock.com/image-photo/kuching-malaysia-8-august-2024-260nw-2500134365.jpg"
+            }
+        ]
+    }  
+]
