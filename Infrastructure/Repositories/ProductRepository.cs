@@ -64,6 +64,8 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
             _ => query.OrderBy(x => x.Name)
         };
 
+        query = query.Include(x => x.ProductPictures);
+
         var products = await query.Skip((pageNumber - 1) * entitiesPerPage)
                        .Take(entitiesPerPage).ToListAsync();
 
