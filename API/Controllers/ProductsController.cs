@@ -9,7 +9,7 @@ namespace API.Controllers;
 public class ProductsController(IProductRepository productsRepository) : BaseApiController
 {
     [HttpGet]
-    public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] string[]? brands, string[]? types, 
+    public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] string[]? brands, [FromQuery] string[]? types, 
     string? sort, string? search, int pageNumber, int entitiesPerPage)
     {
         if (entitiesPerPage > 50)

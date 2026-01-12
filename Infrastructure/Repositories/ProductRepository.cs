@@ -14,30 +14,44 @@ public class ProductRepository(Data.ApplicationContext context) : Repository<Pro
         return brands; 
     }
 
-    public async Task<IList<Product>> GetProductsAsync(string[]? brands, string[]? types, string? sort, string? search, int pageNumber = 1, int entitiesPerPage = 6)
+    public async Task<IList<Product>> GetProductsAsync(string[]? brands, string[]? types, string? sort, string? search, int pageNumber, int entitiesPerPage)
     {
         var query = context.Products.AsQueryable();
 
         if (brands != null && brands.Count() > 0)
         {
-            foreach (var brand in brands)
-            {
-                query = query.Where(x => x.Brand.ToString() == brand);
-            }
+            /*
+                foreach (var brand in brands)
+                {
+                    query = query.Where(x => x.Brand.GetType().ToString() == brand);
+                }
+            */
+            
+            var parsedBrands = brands
+            .Select(b => Enum.TryParse<Brand>(b, true, out var r) ? r : (Brand?)null)
+            .Where(b => b.HasValue)
+            .Select(b => b!.Value)
+            .ToList();
+
+            query = query.Where(x => parsedBrands.Contains(x.Brand));
         }
 
         if (types != null && types.Count() > 0)
         {
-            foreach (var type in types)
-            {
-                query = query.Where(x => x.Type.ToString() == type);
-            }
+            var parsedTypes = types
+            .Select(t => Enum.TryParse<Core.Entities.Type>(t, true, out var result) ? result : (Core.Entities.Type?)null)
+            .Where(t => t.HasValue)
+            .Select(t => t!.Value)
+            .ToList();
+
+            query = query.Where(x => parsedTypes.Contains(x.Type));
         }
 
         if (search.IsNullOrEmpty() == false)
         {
+            
             query = query.Where(x => x.Name.Contains(search) || x.Description.Contains(search) || 
-                x.Brand.ToString().Contains(search) || x.Type.ToString().Contains(search) || x.Price.ToString().Contains(search) 
+                /*x.Brand.ToString().Contains(search) || x.Type.ToString().Contains(search) || */ x.Price.ToString().Contains(search) 
                 || x.StockLevel.ToString().Contains(search));
         }
 
