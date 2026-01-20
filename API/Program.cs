@@ -12,12 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()/*
+builder.Services.AddControllers()
     .AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 })
-*/;
+;
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
 {
@@ -44,6 +44,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<ApplicationContext>();
+builder.Services.AddScoped<IPaymentsService, PaymentsService>();
 
 var app = builder.Build();
 
@@ -56,6 +57,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
+
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 app.UseAuthentication();
 app.UseAuthorization();
