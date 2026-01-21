@@ -12,19 +12,21 @@ public class ProductsController(IProductRepository productsRepository) : BaseApi
     public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] string[]? brands, [FromQuery] string[]? types, 
     string? sort, string? search, int pageNumber, int entitiesPerPage)
     {
-        if (entitiesPerPage > 50)
-        {
-            entitiesPerPage = 50;
-        }
-        else if (entitiesPerPage < 6)
-        {
-            entitiesPerPage = 6;
-        }
+        // if (entitiesPerPage > 50)
+        // {
+        //     entitiesPerPage = 50;
+        // }
+        // else if (entitiesPerPage < 6)
+        // {
+        //     entitiesPerPage = 6;
+        // }
 
         var products = await productsRepository.GetProductsAsync(brands, types, sort, search, pageNumber, 
         entitiesPerPage);
 
-        var productPagination = new Pagination<Product>(pageNumber, entitiesPerPage, products.Count, products);
+       var allProducts = await productsRepository.GetAllAsync();
+
+        var productPagination = new Pagination<Product>(pageNumber, entitiesPerPage, allProducts.Count, products);
 
         return Ok(productPagination);
     }
