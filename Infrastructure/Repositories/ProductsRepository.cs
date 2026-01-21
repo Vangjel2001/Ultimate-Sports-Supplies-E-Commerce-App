@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure.Repositories;
 
-public class ProductRepository(Data.ApplicationContext context) : Repository<Product>(context), IProductRepository
+public class ProductsRepository(Data.ApplicationContext context) : Repository<Product>(context), IProductsRepository
 {
     public async Task<IList<string>> GetBrandsAsync()
     {

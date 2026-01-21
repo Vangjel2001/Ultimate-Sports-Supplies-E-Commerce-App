@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class ProductsController(IProductRepository productsRepository) : BaseApiController
+public class ProductsController(IProductsRepository productsRepository) : BaseApiController
 {
     [HttpGet]
     public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] string[]? brands, [FromQuery] string[]? types, 

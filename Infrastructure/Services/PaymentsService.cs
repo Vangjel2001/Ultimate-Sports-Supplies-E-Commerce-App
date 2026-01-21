@@ -6,7 +6,7 @@ using Stripe;
 
 namespace Infrastructure.Services;
 
-public class PaymentsService(IConfiguration config, ICartService cartService, IRepository<DeliveryMethod> deliveryMethodsRepository, IProductRepository productsRepository) : IPaymentsService
+public class PaymentsService(IConfiguration config, ICartService cartService, IRepository<DeliveryMethod> deliveryMethodsRepository, IProductsRepository productsRepository) : IPaymentsService
 {
     public async Task<ShoppingCart?> CreateOrUpdatePaymentIntent(string cartId)
     {
