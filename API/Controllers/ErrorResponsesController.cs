@@ -1,5 +1,7 @@
 using System;
+using System.Security.Claims;
 using API.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -36,5 +38,13 @@ public class ErrorResponsesController : BaseApiController
         return Ok();
     }
 
-    // TODO : GetSecret() method to be implemented
+    [Authorize]
+    [HttpGet("secret")]
+    public ActionResult GetSecret()
+    {
+        var name = User.FindFirst(ClaimTypes.Name)?.Value;
+        var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        return Ok("Hello " + name + "! You have id = " + id);
+    }
 }
