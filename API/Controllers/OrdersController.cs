@@ -32,7 +32,7 @@ IRepository<DeliveryMethod> deliveryMethodsRepository) : BaseApiController
 
         var orderItems = new List<OrderItem>();
 
-        foreach (var cartItem in cart.CartItems)
+        foreach (var cartItem in cart.Items)
         {
             var product = await productsRepository.GetByIdAsync(cartItem.ProductId);
 

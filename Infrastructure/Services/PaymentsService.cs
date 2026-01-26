@@ -33,7 +33,7 @@ public class PaymentsService(IConfiguration config, ICartService cartService, IR
             shippingFee = deliveryMethod.Fee;
         }
 
-        foreach (var item in cart.CartItems)
+        foreach (var item in cart.Items)
         {
             var product = await productsRepository.GetByIdAsync(item.ProductId);
 
@@ -55,7 +55,7 @@ public class PaymentsService(IConfiguration config, ICartService cartService, IR
         {
             var paymentIntentOptions = new PaymentIntentCreateOptions
             {
-                Amount = (long)cart.CartItems.Sum(x => x.Quantity * (x.Price * 100))
+                Amount = (long)cart.Items.Sum(x => x.Quantity * (x.Price * 100))
                     + (long)shippingFee * 100,
                 Currency = "usd",
                 PaymentMethodTypes = ["card"]
@@ -69,7 +69,7 @@ public class PaymentsService(IConfiguration config, ICartService cartService, IR
         {
             var paymentIntentUpdateOptions = new PaymentIntentUpdateOptions
             {
-                Amount = (long)cart.CartItems.Sum(x => x.Quantity * (x.Price * 100))
+                Amount = (long)cart.Items.Sum(x => x.Quantity * (x.Price * 100))
                     + (long)shippingFee * 100
             };
             intent = await paymentIntentService.UpdateAsync(cart.PaymentIntentId, paymentIntentUpdateOptions);
