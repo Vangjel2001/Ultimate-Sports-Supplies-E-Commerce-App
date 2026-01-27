@@ -34,7 +34,7 @@ public class ProductsController(IProductsRepository productsRepository) : BaseAp
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Product>> GetProductById(int id)
     {
-        var product = await productsRepository.GetByIdAsync(id);
+        var product = await productsRepository.GetProductWithPicturesByIdAsync(id);
 
         if (product == null)
         {

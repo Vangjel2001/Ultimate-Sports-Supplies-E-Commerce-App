@@ -72,6 +72,13 @@ public class ProductsRepository(Data.ApplicationContext context) : Repository<Pr
         return products;
     }
 
+    public async Task<Product?> GetProductWithPicturesByIdAsync(int id)
+    {
+        return await context.Products
+        .Include(p => p.ProductPictures)
+        .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
     public async Task<IList<string>> GetTypesAsync()
     {
         var types = await context.Products.Select(x => x.Type.ToString()).Distinct().ToListAsync();
