@@ -67,12 +67,43 @@ public class PaymentsService(IConfiguration config, ICartService cartService, IR
         }
         else
         {
+            
             var paymentIntentUpdateOptions = new PaymentIntentUpdateOptions
             {
                 Amount = (long)cart.Items.Sum(x => x.Quantity * (x.Price * 100))
                     + (long)shippingFee * 100
             };
             intent = await paymentIntentService.UpdateAsync(cart.PaymentIntentId, paymentIntentUpdateOptions);
+            
+
+            /*
+            var existingIntent = await paymentIntentService.GetAsync(cart.PaymentIntentId);
+
+            if (existingIntent.Status == "succeeded")
+            {
+                // Create new PaymentIntent if the old one is already completed
+                var paymentIntentOptions = new PaymentIntentCreateOptions
+                {
+                    Amount = (long)cart.Items.Sum(x => x.Quantity * (x.Price * 100)) + (long)(shippingFee * 100),
+                    Currency = "usd",
+                    PaymentMethodTypes = ["card"]
+                };
+
+                intent = await paymentIntentService.CreateAsync(paymentIntentOptions);
+                cart.PaymentIntentId = intent.Id;
+                cart.ClientSecret = intent.ClientSecret;
+            }
+            else
+            {
+                var paymentIntentUpdateOptions = new PaymentIntentUpdateOptions
+                {
+                    Amount = (long)cart.Items.Sum(x => x.Quantity * (x.Price * 100)) + (long)(shippingFee * 100)
+                };
+
+                intent = await paymentIntentService.UpdateAsync(cart.PaymentIntentId, paymentIntentUpdateOptions);
+            }
+            */
+            
         }
 
         await cartService.SetCartAsync(cart);
