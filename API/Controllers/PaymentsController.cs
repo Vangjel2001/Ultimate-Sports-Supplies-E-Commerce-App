@@ -71,7 +71,6 @@ public class PaymentsController(IRepository<DeliveryMethod> deliveryMethodsRepos
     {
         if (intent.Status == "succeeded")
         {
-            //var order = await ordersRepository.GetOrderByPaymentIntentId(intent.Id);
              Order order = null;
              int retries = 0;
              const int maxRetries = 5;
@@ -94,11 +93,10 @@ public class PaymentsController(IRepository<DeliveryMethod> deliveryMethodsRepos
 
             if (order == null)
             {
-                //throw new Exception("Order not found");
                 throw new Exception("Order not found after multiple retries");
             }
 
-            logger.LogInformation($"Order Total: {order.Total}, Expected cents: {(long)order.Total * 100}, Actual cents: {intent.Amount}");
+            //logger.LogInformation($"Order Total: {order.Total}, Expected cents: {(long)order.Total * 100}, Actual cents: {intent.Amount}");
 
             if((long)(order.Total * 100) != intent.Amount)
             {
