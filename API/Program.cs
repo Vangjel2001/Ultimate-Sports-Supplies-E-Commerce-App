@@ -9,6 +9,7 @@ using StackExchange.Redis;
 using Infrastructure.Services;
 using API.SignalR;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

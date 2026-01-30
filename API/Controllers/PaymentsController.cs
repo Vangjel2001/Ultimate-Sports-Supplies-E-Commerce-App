@@ -71,14 +71,36 @@ public class PaymentsController(IRepository<DeliveryMethod> deliveryMethodsRepos
     {
         if (intent.Status == "succeeded")
         {
-            var order = await ordersRepository.GetOrderByPaymentIntentId(intent.Id);
+            //var order = await ordersRepository.GetOrderByPaymentIntentId(intent.Id);
+             Order order = null;
+             int retries = 0;
+             const int maxRetries = 5;
+             const int delayMs = 500;
+
+        // Retry up to 5 times with 500ms delay between attempts
+            while (order == null && retries < maxRetries)
+            {
+                order = await ordersRepository.GetOrderByPaymentIntentId(intent.Id);
+                
+                if (order == null)
+                {
+                    retries++;
+                    if (retries < maxRetries)
+                    {
+                        await Task.Delay(delayMs);
+                    }
+                }
+            }    
 
             if (order == null)
             {
-                throw new Exception("Order not found");
+                //throw new Exception("Order not found");
+                throw new Exception("Order not found after multiple retries");
             }
 
-            if((long)order.Total * 100 != intent.Amount)
+            logger.LogInformation($"Order Total: {order.Total}, Expected cents: {(long)order.Total * 100}, Actual cents: {intent.Amount}");
+
+            if((long)(order.Total * 100) != intent.Amount)
             {
                 order.Status = OrderStatus.PaymentMismatch;
             }
@@ -86,6 +108,8 @@ public class PaymentsController(IRepository<DeliveryMethod> deliveryMethodsRepos
             {
                 order.Status = OrderStatus.PaymentSucceeded;
             }
+
+            await ordersRepository.Complete();
 
             var connectionId = NotificationsHub.GetConnectionIdByEmail(order.BuyerEmail);
 
@@ -100,7 +124,7 @@ public class PaymentsController(IRepository<DeliveryMethod> deliveryMethodsRepos
     {
         try
         {
-            return EventUtility.ConstructEvent(json, Request.Headers["Stripe-Signature"], _whSecret);
+            return EventUtility.ConstructEvent(json, Request.Headers["Stripe-Signature"], _whSecret, throwOnApiVersionMismatch: false);
         }
         catch (Exception ex)
         {
