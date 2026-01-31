@@ -1,4 +1,5 @@
 
+using System.Reflection;
 using System.Text.Json;
 using Core.Entities;
 
@@ -8,9 +9,12 @@ public class ApplicationContextSeed
 {
     public static async Task SeedAsync(ApplicationContext context)
     {
+        var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
         if (context.Products.Any() == false)
         {
-            var productsData = await File.ReadAllTextAsync("../Infrastructure/Data/SeededData/products.json");
+            var productsData = await File
+                .ReadAllTextAsync(path + @"/Data/SeededData/products.json");
 
             var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
@@ -27,7 +31,8 @@ public class ApplicationContextSeed
 
         if (context.DeliveryMethods.Any() == false)
         {
-            var deliveryMethodsData = await File.ReadAllTextAsync("../Infrastructure/Data/SeededData/deliveryMethods.json");
+            var deliveryMethodsData = await File
+                .ReadAllTextAsync(path + @"/Data/SeededData/deliveryMethods.json");
 
             var deliveryMethods = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryMethodsData);
 
